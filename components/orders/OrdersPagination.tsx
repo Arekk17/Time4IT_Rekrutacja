@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface OrdersPaginationProps {
   currentPage: number;
@@ -24,25 +25,31 @@ export function OrdersPagination({
       <div className="flex flex-row gap-3">
         {hasPrev ? (
           <Link href={`/orders?page=${currentPage - 1}`}>
-            <button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground hover:bg-gray-50">
+            <Button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground hover:bg-gray-50">
               Poprzednia
-            </button>
+            </Button>
           </Link>
         ) : (
-          <button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground opacity-50 cursor-not-allowed">
+          <Button
+            disabled
+            className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground opacity-50 cursor-not-allowed"
+          >
             Poprzednia
-          </button>
+          </Button>
         )}
         {hasNext ? (
           <Link href={`/orders?page=${currentPage + 1}`}>
-            <button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground hover:bg-gray-50">
+            <Button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground hover:bg-gray-50">
               Następna
-            </button>
+            </Button>
           </Link>
         ) : (
-          <button className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground opacity-50 cursor-not-allowed">
+          <Button
+            disabled
+            className="flex flex-row justify-center items-center px-3 py-2 gap-1 w-[93px] h-9 bg-background border-[0.5px] border-border shadow-[0px_1px_2px_rgba(10,13,18,0.05)] rounded-lg font-semibold text-sm leading-5 text-muted-foreground opacity-50 cursor-not-allowed"
+          >
             Następna
-          </button>
+          </Button>
         )}
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreVertical, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ActionMenuProps {
   onDelete?: () => void;
@@ -16,9 +17,9 @@ export function ActionMenu({ onDelete }: ActionMenuProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="w-5 h-5 p-0 bg-white cursor-pointer grid place-items-center rounded data-[state=open]:shadow-[0px_0px_0px_2px_#FFFFFF,0px_0px_0px_4px_#9E77ED]">
+        <Button className="w-5 h-5 p-0 bg-ui-background-light cursor-pointer grid place-items-center rounded data-[state=open]:shadow-[0px_0px_0px_2px_var(--ui-background-light),0px_0px_0px_4px_var(--brand-primary)]">
           <MoreVertical className="w-5 h-5 text-muted-foreground" />
-        </button>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
@@ -31,7 +32,7 @@ export function ActionMenu({ onDelete }: ActionMenuProps) {
           >
             <div className="flex flex-row items-center px-2.5 py-2 gap-3 w-[236px] h-9 rounded-md">
               <div className="flex flex-row items-center gap-2 w-[216px] h-5">
-                <Trash2 className="w-4 h-4 text-[#D92D20]" />
+                <Trash2 className="w-4 h-4 text-destructive-primary" />
                 <span className="w-[192px] h-5 font-semibold text-sm leading-5 text-muted-foreground">
                   Usuń zamówienie
                 </span>

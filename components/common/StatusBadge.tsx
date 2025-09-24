@@ -7,13 +7,13 @@ const getBadgeClasses = (status: string) => {
     case "new":
     case "processing":
     case "shipped":
-      return "bg-[#F9F5FF] border border-[#E9D7FE] text-[#6941C6]";
+      return "bg-status-new-bg border border-status-new-border text-status-new-text";
     case "delivered":
-      return "bg-[#ECFDF3] border border-[#ABEFC6] text-[#067647]";
+      return "bg-status-delivered-bg border border-status-delivered-border text-status-delivered-text";
     case "cancelled":
-      return "bg-[#FEF3F2] border border-[#FECDCA] text-[#B42318]";
+      return "bg-status-cancelled-bg border border-status-cancelled-border text-status-cancelled-text";
     default:
-      return "bg-[#F9F5FF] border border-[#E9D7FE] text-[#6941C6]";
+      return "bg-status-new-bg border border-status-new-border text-status-new-text";
   }
 };
 
@@ -22,13 +22,13 @@ const getDotClass = (status: string) => {
     case "new":
     case "processing":
     case "shipped":
-      return "bg-[#9E77ED]";
+      return "bg-status-new-dot";
     case "delivered":
-      return "bg-[#17B26A]";
+      return "bg-status-delivered-dot";
     case "cancelled":
-      return "bg-[#F04438]";
+      return "bg-status-cancelled-dot";
     default:
-      return "bg-[#9E77ED]";
+      return "bg-status-new-dot";
   }
 };
 

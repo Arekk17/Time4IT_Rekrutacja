@@ -38,7 +38,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-[#0A0D12]/70 backdrop-blur-sm",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-overlay/70 backdrop-blur-sm",
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ function DialogContent({
             data-slot="dialog-close"
             className="absolute top-3 right-3 w-11 h-11 p-2 rounded-lg hover:bg-gray-100 flex justify-center items-center z-[1] transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
           >
-            <XIcon className="w-6 h-6 text-[#A4A7AE] stroke-2" />
+            <XIcon className="w-6 h-6 text-text-tertiary stroke-2" />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
         )}

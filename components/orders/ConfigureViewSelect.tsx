@@ -59,6 +59,7 @@ export function ConfigureViewSelect({
             <DropdownMenuItem
               key={column.id}
               className="flex flex-row items-center w-full h-9 px-1.5 py-0.5 cursor-pointer hover:bg-gray-50 focus:bg-gray-50 rounded-md"
+              onClick={() => handleColumnToggle(column.id)}
             >
               <div className="flex flex-col items-start w-full h-9 p-1 gap-1 rounded-md">
                 <div className="flex flex-row items-center w-full h-5 p-0 gap-2 whitespace-nowrap">
@@ -67,7 +68,7 @@ export function ConfigureViewSelect({
                     onCheckedChange={() => handleColumnToggle(column.id)}
                   />
 
-                  <span className="font-medium text-sm leading-5 text-[#181D27]">
+                  <span className="font-medium text-sm leading-5 text-text-primary">
                     {column.label}
                   </span>
                 </div>

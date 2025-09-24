@@ -28,12 +28,12 @@ export function BackgroundDecor({ className, ...props }: BackgroundDecorProps) {
         <rect width={336} height={336} fill="url(#radial_bg_decor)" />
       </mask>
       <g mask="url(#mask_bg_decor)">
-        <circle cx={168} cy={168} r={48} stroke="#E9EAEB" />
-        <circle cx={168} cy={168} r={72} stroke="#E9EAEB" />
-        <circle cx={168} cy={168} r={96} stroke="#E9EAEB" />
-        <circle cx={168} cy={168} r={120} stroke="#E9EAEB" />
-        <circle cx={168} cy={168} r={144} stroke="#E9EAEB" />
-        <circle cx={168} cy={168} r={168} stroke="#E9EAEB" />
+        <circle cx={168} cy={168} r={48} stroke="var(--ui-background-decor)" />
+        <circle cx={168} cy={168} r={72} stroke="var(--ui-background-decor)" />
+        <circle cx={168} cy={168} r={96} stroke="var(--ui-background-decor)" />
+        <circle cx={168} cy={168} r={120} stroke="var(--ui-background-decor)" />
+        <circle cx={168} cy={168} r={144} stroke="var(--ui-background-decor)" />
+        <circle cx={168} cy={168} r={168} stroke="var(--ui-background-decor)" />
       </g>
       <defs>
         <radialGradient

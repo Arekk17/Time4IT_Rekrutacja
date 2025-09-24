@@ -93,12 +93,14 @@ export function OrdersTable({ orders, visibleColumns }: OrdersTableProps) {
 
   const SortIcon = ({ field }: { field: SortField }) => {
     if (sortField !== field) {
-      return <ChevronsUpDown className="w-3 h-3 text-[#A4A7AE] flex-none" />;
+      return (
+        <ChevronsUpDown className="w-3 h-3 text-text-tertiary flex-none" />
+      );
     }
     return sortDirection === "asc" ? (
-      <ChevronUp className="w-3 h-3 text-[#A4A7AE] flex-none" />
+      <ChevronUp className="w-3 h-3 text-text-tertiary flex-none" />
     ) : (
-      <ChevronDown className="w-3 h-3 text-[#A4A7AE] flex-none" />
+      <ChevronDown className="w-3 h-3 text-text-tertiary flex-none" />
     );
   };
 
@@ -139,7 +141,7 @@ export function OrdersTable({ orders, visibleColumns }: OrdersTableProps) {
                     className="flex flex-row items-center !p-0 gap-1 hover:bg-transparent w-auto h-auto"
                     onClick={() => handleSort("orderNumber")}
                   >
-                    <span className="font-semibold text-xs leading-[18px] text-[#717680] flex-none ">
+                    <span className="font-semibold text-xs leading-[18px] text-text-secondary flex-none ">
                       Numer zamówienia
                     </span>
                     <SortIcon field="orderNumber" />
@@ -174,7 +176,7 @@ export function OrdersTable({ orders, visibleColumns }: OrdersTableProps) {
                     className="flex flex-row items-center !p-0 gap-1 hover:bg-transparent w-auto h-auto"
                     onClick={() => handleSort("dueDate")}
                   >
-                    <span className="font-semibold text-xs leading-[18px] text-[#717680] flex-none">
+                    <span className="font-semibold text-xs leading-[18px] text-text-secondary flex-none">
                       Data
                     </span>
                     <SortIcon field="dueDate" />
@@ -222,7 +224,7 @@ export function OrdersTable({ orders, visibleColumns }: OrdersTableProps) {
                     className="flex flex-row items-center !p-0 gap-1 hover:bg-transparent w-auto h-auto"
                     onClick={() => handleSort("totalGross")}
                   >
-                    <span className="font-semibold text-xs leading-[18px] text-[#717680] flex-none">
+                    <span className="font-semibold text-xs leading-[18px] text-text-secondary flex-none">
                       Kwota
                     </span>
                     <SortIcon field="totalGross" />

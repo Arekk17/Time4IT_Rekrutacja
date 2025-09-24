@@ -53,7 +53,7 @@ export function AddOrderModal() {
       customer: "",
       status: "new",
       dueDate: todayLocalISO(),
-      totalGross: undefined as unknown as number,
+      totalGross: 0,
     },
   });
 
@@ -68,7 +68,7 @@ export function AddOrderModal() {
         customer: "",
         status: "new",
         dueDate: todayLocalISO(),
-        totalGross: undefined as unknown as number,
+        totalGross: 0,
       });
       router.refresh();
     } catch (error) {
@@ -101,21 +101,21 @@ export function AddOrderModal() {
             customer: "",
             status: "new",
             dueDate: todayLocalISO(),
-            totalGross: undefined as unknown as number,
+            totalGross: 0,
           });
         }
       }}
     >
       <DialogTrigger asChild>
-        <button className="flex flex-row justify-center items-center py-[10px] px-4 gap-[6px] w-full h-11 bg-[#7F56D9] shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)] rounded-lg cursor-pointer">
-          <Plus className="w-5 h-5 text-[#D6BBFB]" />
+        <Button className="flex flex-row justify-center items-center py-[10px] px-4 gap-[6px] w-full h-11 bg-brand-primary shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)] rounded-lg cursor-pointer">
+          <Plus className="w-5 h-5 text-brand-primary-light" />
 
           <div className="flex flex-row justify-center items-center px-[2px] w-[147px] h-6">
             <span className="w-[143px] h-6 font-semibold text-base leading-6 text-white">
               Dodaj zamówienie
             </span>
           </div>
-        </button>
+        </Button>
       </DialogTrigger>
       <DialogContent className="w-[640px] max-w-[640px] sm:max-w-[640px] p-0 rounded-2xl overflow-hidden shadow-[0px_20px_24px_-4px_rgba(10,13,18,0.08),0px_8px_8px_-4px_rgba(10,13,18,0.03),0px_3px_3px_-1.5px_rgba(10,13,18,0.04)]">
         <DialogHeader className="relative items-start px-6 pt-6 pb-0 gap-4 overflow-visible isolate">
@@ -208,25 +208,11 @@ export function AddOrderModal() {
                       step="0.01"
                       min="0"
                       placeholder="Podaj kwotę brutto zamówienia"
-                      value={
-                        (field.value as unknown as number) ? field.value : ""
-                      }
+                      {...field}
+                      value={field.value || ""}
                       onChange={(e) => {
-                        const v = e.target.value;
-                        if (v === "") {
-                          (
-                            field as unknown as {
-                              onChange: (v: unknown) => void;
-                            }
-                          ).onChange(undefined);
-                        } else {
-                          const n = parseFloat(v);
-                          (
-                            field as unknown as {
-                              onChange: (v: unknown) => void;
-                            }
-                          ).onChange(Number.isNaN(n) ? undefined : n);
-                        }
+                        const value = e.target.value;
+                        field.onChange(value === "" ? 0 : parseFloat(value));
                       }}
                     />
                   </FormControl>
@@ -254,7 +240,7 @@ export function AddOrderModal() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="h-11 w-full bg-[#7F56D9] text-white shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)]"
+                className="h-11 w-full bg-brand-primary text-white shadow-[0px_1px_2px_rgba(10,13,18,0.05),inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_rgba(10,13,18,0.05)]"
               >
                 {isSubmitting && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
